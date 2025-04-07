@@ -70,11 +70,42 @@ This simulation demonstrates how deterministic equations can produce unpredictab
 
 
 
+## Program 4: Nonlinear Wave Simulation (Coupled Oscillator Chain)
+
+### Overview
+
+This program simulates a **nonlinear 1D chain of coupled oscillators**, governed by a discretized second-order wave equation with both linear and cubic restoring forces:
+
+\[
+\frac{d^2P}{dt^2} = -\frac{1}{\rho} \left( \alpha P + \beta P^3 + k(2P - P_\text{left} - P_\text{right}) \right) + S(t)
+\]
+
+This setup can be interpreted physically as:
+- Stress/strain waves in nonlinear elastic media
+- Charge propagation in nonlinear transmission lines
+- Toy models of seismic or mechanical wave transport
+
+### Features
+
+- Initialization with a **Gaussian wave packet**
+- Optional **external sinusoidal source** at center
+- Time evolution using **RK4 integrator**
+- Visualizations:
+  - Mean field \( \langle P(t) \rangle \) vs. time
+  - Snapshot of wave profile at specific time steps
+
+### Physics Insights
+
+Without external forcing, the initial wave packet disperses and fades due to nonlinear dynamics and boundary reflections. With periodic forcing, energy can accumulate or create sustained wave structures depending on system parameters.
+
+---
+
 ## Dependencies
 
 - Python 3.x
 - NumPy
 - Matplotlib
+- tqdm (for progress bars)
 
 ---
 
@@ -87,6 +118,5 @@ git clone https://github.com/YILUOSJTUT/Nonlinear-dynamics.git
 # Navigate to the folder
 cd Nonlinear-dynamics
 
-
-#open with:
-#upyter notebook
+# Open notebooks in Jupyter
+jupyter notebook
