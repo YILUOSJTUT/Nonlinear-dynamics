@@ -1,6 +1,6 @@
 # Nonlinear Dynamics Homework
 
-This repository contains two mini programs developed for a homework assignment on Nonlinear Dynamics. Each program explores a different chaotic map and demonstrates how simple iterative maps can lead to complex, chaotic behavior.
+This repository contains three mini programs developed for a homework assignment on Nonlinear Dynamics. Each program explores a different system that exhibits chaotic behavior, from discrete maps to continuous-time differential equations.
 
 ---
 
@@ -15,12 +15,6 @@ This program simulates the **Standard (Chirikov) Map**, a classic area-preservin
 
 Here, \( x \) represents the phase (or angle) on a torus, and \( y \) represents a momentum-like variable. The parameter \( k \) controls the strength of the nonlinear perturbation. For small \( k \) the dynamics are regular (invariant tori), whereas larger \( k \) can induce chaotic behavior.
 
-### How to Run
-
-- The program iterates trajectories starting from a grid of initial conditions.
-- Adjust parameters such as the number of iterations or the list of \( k \) values in the code.
-- Run the program to generate phase-space portraits that illustrate the transition from order to chaos.
-
 ---
 
 ## Program 2: Chaos Map Explorer
@@ -33,39 +27,66 @@ This program explores a custom chaotic map given by:
 - **\( x_{n+1} = \left( x_n + a\,(1 - y_n^2) \right) \mod 1 \)**
 
 In this map:
-- **\( x \)** is treated as an angular variable (confined to \([0,1)\) via the modulo operation).
-- **\( y \)** is a momentum-like variable that is updated using a nonlinear (quadratic) function of \( y \) combined with a sinusoidal term in \( x \).
+- **\( x \)** is treated as an angular variable (confined to \([0,1)\)).
+- **\( y \)** is a momentum-like variable updated by a nonlinear kick.
 
-Changing the parameters \( a \) and \( b \) alters the dynamics:
-- The parameter **\( a \)** affects the shift in \( x \) through the term \( a\,(1 - y^2) \).
-- The parameter **\( b \)** modulates the sinusoidal kick on \( y \).  
-By exploring different combinations of \( a \) and \( b \), you can observe a variety of phase-space structures from regular to chaotic motion.
-
-This program also includes functionality to plot multiple parameter sets in a grid of subplots for side-by-side comparisons.
-
-### How to Run
-
-- Specify a range of values for \( a \) and \( b \) in the configuration.
-- Run the program to generate subplots that display the phase-space portraits for each parameter pair.
-- Use the zoom option to focus on specific regions of the phase space if desired.
+By varying parameters \( a \) and \( b \), users can observe transitions between regular and chaotic motion using side-by-side phase plots.
 
 ---
 
+## Program 3: Driven Damped Pendulum (Chaos Simulator)
+
+### Overview
+
+The third program simulates the **driven damped pendulum**, a classic nonlinear system modeled by the second-order differential equation:
+
+\[
+\frac{d^2x}{dt^2} + a\frac{dx}{dt} + \sin(x) = f\cos(\omega t)
+\]
+
+Where:
+- \( x \) is the angular displacement,
+- \( a \) is a damping coefficient,
+- \( f \) and \( \omega \) control the strength and frequency of the driving force.
+
+We explore how varying these parameters leads to:
+- Stable periodic motion
+- Damped decay to rest
+- **Chaotic dynamics** (sensitive dependence on initial conditions)
+
+### Features
+
+- Euler-based numerical integrator
+- Modular code for reproducibility
+- Visualization tools:
+  - Time series plots
+  - Phase space trajectories
+  - Poincaré sections
+  - Dot-style phase diagrams (for high-res chaos structure)
+
+### Physics Insights
+
+This simulation demonstrates how deterministic equations can produce unpredictable, aperiodic behavior. A small change in initial velocity or forcing amplitude results in diverging outcomes — the hallmark of **deterministic chaos**.
+
+
+
 ## Dependencies
 
-- **Python 3.x**
-- **NumPy**
-- **Matplotlib**
+- Python 3.x
+- NumPy
+- Matplotlib
 
 ---
 
 ## Usage
 
-1. **Clone or Download the Repository:**  
-   Obtain the repository files to your local machine.
+```bash
+# Clone the repository
+git clone https://github.com/YILUOSJTUT/Nonlinear-dynamics.git
 
-2. **Run the Programs:**  
-   Open a terminal (or use an IDE) and navigate to the repository directory. Then run:
-   ```bash
-   python standard_map_simulator.py
-   python chaos_map_explorer.py
+# Navigate to the folder
+cd Nonlinear-dynamics
+
+
+#open with:
+#upyter notebook
